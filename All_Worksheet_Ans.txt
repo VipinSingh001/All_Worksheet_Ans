@@ -1,0 +1,239 @@
+                      PYTHON WORKSHEET - 4
+1. B
+2. C
+3. B
+4. D
+5. C
+6. B
+7. C
+8. A
+9. A,B,D
+10. A,B,D
+
+11. a) Interpreter translates just one statement of the program at a time into machine code.
+       Due to interpreters being slow in executing the object code, it is preferred less.
+	
+    b) Compiler scans the entire program and translates the whole of it into machine code at once.
+       Main advantage of compilers is it’s execution time.
+
+    Python first compile then interpreted
+
+
+
+
+
+12. PYTHONPATH is an environment variable which you can set to add additional directories where python will look for modules and packages. 
+    For most installations, you should not set these variables since they are not needed for Python to run. Python knows where to find its standard library.
+    The only reason to set PYTHONPATH is to maintain directories of custom Python libraries that you do not want to install in the global default 
+    location (i.e., the site-packages directory).
+
+
+
+
+13.  We can use the strip() to remove trailing and leading spaces.
+
+ s = '   abd cde   '
+s.strip()
+output- 'abd cde'
+
+
+
+
+
+
+14.  def function(num):
+        digits = str(num) # convert number to string
+        output = []
+        for i, digit in enumerate(digits):
+            output.append("(" + digit + "*10^" + str(len(digits)-i-1) + ")")
+        return " + ".join(output)
+     function('6543')
+
+output - '(6*10^3) + (5*10^2) + (4*10^1) + (3*10^0)'
+
+
+
+
+15.
+
+num = int(input("Enter a number: "))  
+sum = 0  
+temp = num  
+  
+while temp > 0:  
+    digit = temp % 10  
+    sum += digit ** 3  
+    temp //= 10 
+    
+  
+ 
+if num == sum:  
+    print(num,"is an Armstrong number")  
+else:  
+    print(num,"is not an Armstrong number")
+
+*************************************************************************************************************************************************************************
+
+
+                                                    MACHINE LEARNING – WORKSHEET 7
+
+1. A
+2. B
+3. C
+4. B
+5. B
+6. A
+7. C
+8. A
+9. B
+10.A
+
+
+
+***********************************************************************************************************************************************************************         
+       
+
+                                                    STATISTICS – WORKSHEET 3
+1. D
+2. C
+3. C
+
+Explanation: By the property of Chi Square distribution, the mean corresponds to the number of degrees of freedom.
+Degrees of freedom = 6.
+Hence mean = 6.
+
+
+4. A
+5. C
+6. B
+7. A
+8. A
+9. B
+Explanation: Alternative Hypothesis is also called as Research Hypothesis. If the Null Hypothesis is false then Alternative Hypothesis is accepted.
+
+10. A
+11. B
+12. D
+13. B
+Explanation: The Level of Significance of Null Hypothesis is 0.09. Hence the hypothesis will be rejected at values less than 0.09.
+
+
+14. D
+Explanation: The Level of Significance lies between 0 and 1. The 0 signifies the test is least significant and 1 signifies the test is most significant.
+
+
+15. B
+Explanation: If n decreases then the value of Level of Significance of each sample α decreases. 
+             Hence 1-α increases which are called the rejection of test sample increases.
+
+
+
+
+
+************************************************************************************************************************************************************************
+
+
+
+
+
+
+                 DEEP LEARNING WORKSHEET 5
+
+1. D
+2. A
+3. D
+4. A
+5. D
+6. A
+7. A
+8. C
+9. A,B,C,D
+10.D
+
+
+
+
+Ans 11. Convex Optimization 
+                           a) local min = global min
+                           b) convex optimization there can be only one optimal solution, which is globally optimal.
+
+
+
+        Non Convex Optimization 
+                           a) multiple local min not equal to global min
+                           b) nonconvex optimization may have multiple locally optimal points and it can take a lot of time to identify whether the                                                   problem has no solution or if the solution is global.
+
+Ans 12. Critical points of a function of two variables are those points at which both partial derivatives of the function are zero. A critical point of a function of a         single variable is either a local maximum, a local minimum, or neither. With functions of two variables there is a fourth possibility - a saddle point.
+        A point is a saddle point of a function of two variables if
+        (df/dx = 0) , (df/dy=0)
+       (0,0) is saddle point
+
+        Saddle points in which the function has a local maximum in one direction, but a local minimum in another direction.
+
+Ans 13. Classical momentum
+                          vW(t+1) = momentum.*Vw(t) - scaling .* gradient_F( W(t) )
+                          W(t+1) = W(t) + vW(t+1)
+        Nesterov momentum
+                          vW(t+1) = momentum.*Vw(t) - scaling .* gradient_F( W(t) + momentum.*vW(t) )
+                          W(t+1) = W(t) + vW(t+1)
+
+        The main difference is in classical momentum you first correct your velocity and then make a big step according to that velocity (and then repeat), 
+        but in Nesterov momentum you first making a step into velocity direction and then make a correction to a velocity vector based on new location (then repeat).
+
+
+Ans 14. The aim of weight initialization is to prevent layer activation outputs from exploding or vanishing during the course of a forward pass through 
+        a deep neural network.
+        There are two techniques for weight initialization-
+        a) Zero initialization - If all the weights are initialized with 0, the derivative with respect to loss function is the same for every w in W[l], 
+                                 thus all weights have the same value in subsequent iterations. This makes hidden units symmetric and continues for all 
+                                 the n iterations i.e. setting weights to 0 does not make it better than a linear model. An important thing to keep in mind 
+                                 is that biases have no effect what so ever when initialized with 0.
+
+        b) Random initialization - Assigning random values to weights is better than just 0 assignment.
+                                   1. If weights are initialized with very high values the term np.dot(W,X)+b becomes significantly higher and if an activation 
+                                      function like sigmoid() is applied, the function maps its value near to 1 where the slope of gradient changes slowly and 
+                                      learning takes a lot of time.
+                                   2. If weights are initialized with low values it gets mapped to 0, where the case is the same as above.
+                                      This problem is often referred to as the vanishing gradient.
+
+Ans 15. a) We define Internal Covariate Shift as the change in the distribution of network activations due to the change in network parameters during training.
+        In neural networks, the output of the first layer feeds into the second layer, the output of the second layer feeds into the third, and so on. 
+        When the parameters of a layer change, so does the distribution of inputs to subsequent layers.
+
+        b) These shifts in input distributions can be problematic for neural networks, especially deep neural networks that could have a large number of layers.
+        Batch normalization is a method intended to mitigate internal covariate shift for neural networks.
+
+
+                     
+*********************************************************************************************************************************************************************************************************************************
+
+
+                                                     STATISTICS WORKSHEET 3
+
+1.   select avg(quantityOrdered) from orders inner join orderdetails on orderdetails.orderNumber = orders.orderNumber order by shippedDate
+2.  select orderDate, count(orderNumber) as Total number of orders from orders group by orderDate 
+
+3.  select productName from products order by MSRP asc limit 1
+4.  select productName from products order by stockQuantity desc limit 1
+5.  select productName from products inner join orderdetails on products.productCode = orderdetails.productCode group by productName order by quantityOrdered desc limit 1
+6.  select customerName from customers inner join payments on customers.customerNumber = payments.customerNumber order by amount desc limit 1
+7.  select customerNumber,customerName from customer where city ='Melbourne'
+8.  select customerName from customers where customerName like 'N%'
+9.  select customerName from customers where phone like '^7.*' and city = 'Las Vegas'
+10. select customerName from customers where creditLimit < 1000 and city in ('Las Vegas','Nantes','Stavern')
+11. select orderNumber from orders inner join orderDetails on orders.orderNumber = ordersDetails.orderNumber where quantityOrdered <10
+12. select orderNumber from customers inner join orders on customers.customersNumber = orders.customersNumber where name like 'N%'
+13. select customerName from customers inner join orders on customers.customersNumber = orders.customersNumber where status ='Disputed'
+
+
+14. select customerName from customers inner join payments on customers.customersNumber = payments.customersNumber where checkNumber like 'H%' and paymentDate='2004-10-19'
+15. select checkNumber from payments where amount > 1000
+
+
+
+
+
+
+                     
+
+‏
